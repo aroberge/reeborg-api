@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Advanced World Creation Source: world_api/is_fatal.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.reeborg.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Advanced World Creation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="RUR.html">RUR</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="RUR.Deque.html">RUR.Deque</a></li><li><a href="RUR.Graph.html">RUR.Graph</a></li><li><a href="RUR.PriorityQueue.html">RUR.PriorityQueue</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: world_api/is_fatal.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">require("./../rur.js");
+require("./background_tile.js");
+require("./bridges.js");
+require("./obstacles.js");
+
+/** @function get_protections
+ * @memberof RUR
+ * @instance
+ *
+ * @desc This return a list of protections carried by the robot
+ * against named fatalities.
+ *
+ * @param {object} robot_body  robot body object
+ *
+ * @returns an array of protections;
+ *
+ */
+RUR.get_protections = function (robot) {
+    "use strict";
+    var objects_carried, obj_type, protections;
+
+    objects_carried = RUR.control.carries_object(robot);
+    if (!objects_carried || !Object.keys(objects_carried)) {
+        return [];
+    }
+
+    protections = [];
+    for(obj_type of Object.keys(objects_carried)){
+        if (RUR.THINGS[obj_type] !== undefined &amp;&amp; RUR.THINGS[obj_type].protections !== undefined) {
+            protections = protections.concat(RUR.THINGS[obj_type].protections);
+        }
+    }
+
+    return protections;
+};
+
+/** @function is_fatal_position
+ * @memberof RUR
+ * @instance
+ * @desc Indicates if the position would be fatal for the robot. A robot can
+ * carry protections against fatalities
+ *
+ * @param {integer} x  Position: `1 &lt;= x &lt;= max_x`
+ * @param {integer} y  Position: `1 &lt;= y &lt;= max_y`
+ * @param {object} robot_body  robot body object
+ *
+ * @returns The message of the first `fatal` thing found
+ * [for which the robot has no protection]; if no such thing is found,
+ * `false/False` is returned.
+ */
+RUR.is_fatal_position = function (x, y, robot){
+    "use strict";
+    var protections, obs, obstacles, tile;
+    // Objects carried can offer protection
+    // against some types of otherwise fatal obstacles
+    protections = RUR.get_protections(robot);
+    obstacles = RUR.get_obstacles(x, y);
+    if (obstacles) {
+        for (obs of obstacles) {
+            // Here, and below, we call RUR._get_property instead of
+            // RUR.get_property since this uses the internal english names;
+            // RUR.get_property assumes an untranslated argument.
+            if (RUR._get_property(obs, "fatal")) {
+                if (protections.indexOf(RUR._get_property(obs, "fatal")) === -1) {
+                    if (RUR.THINGS[obs].message) {
+                        return RUR.THINGS[obs].message;
+                    } else {
+                        return "Fatal obstacle needs message defined";
+                    }
+                }
+            }
+        }
+    }
+    // Both bridges and objects carried can offer protection
+    // against some types of otherwise fatal background tiles; so let's
+    // add any bridge protection
+    protections = protections.concat(RUR.get_bridge_protections(x, y));
+    tile = RUR.get_background_tile(x, y);
+    // tile is a name; it could be a colour, which is never fatal.
+    if (tile &amp;&amp; RUR.THINGS[tile] !== undefined) {
+        if (RUR._get_property(tile, "fatal")) {
+            if (protections.indexOf(RUR._get_property(tile, "fatal")) === -1) {
+                if (RUR.THINGS[tile].message) {
+                    return RUR.THINGS[tile].message;
+                } else {
+                    return "Fatal tile needs message defined";
+                }
+            }
+        }
+    }
+    // nothing fatal was found
+    return false;
+};
+
+
+/** @function is_detectable_position
+ * @memberof RUR
+ * @instance
+ * @desc For Reeborg to determine if a fatal "thing" is present (e.g., for
+ * `front_is_clear()  to return `false/False`), the "thing" must have a
+ * `detectable` attribute which evaluates to `true/True`.  This function returns
+ * `true/True` if there is as least such a detectable "thing" at that position.
+ *
+ * @param {integer} x  Position: `1 &lt;= x &lt;= max_x`
+ * @param {integer} y  Position: `1 &lt;= y &lt;= max_y`
+ *
+ * @returns `true` if this position is detectable by the robot, `false` otherwise
+ */
+RUR.is_detectable_position = function (x, y){
+    "use strict";
+    var detectable, tile, tiles;
+
+    /* Both obstacles and background tiles can be detectable;
+       we combine both in a single array here */
+
+    tiles = RUR.get_obstacles(x, y);
+    if (!tiles) {
+        tiles = [];
+    }
+    tile = RUR.get_background_tile(x, y);
+    if (tile &amp;&amp; RUR.THINGS[tile] !== undefined) {
+        tiles.push(tile);
+    }
+    for (tile of tiles) {
+        if (RUR._get_property(tile, "detectable")) {
+            return true;
+        }
+    }
+    return false;
+};
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on Saturday, November 18th 2017
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+
+</body>
+</html>
