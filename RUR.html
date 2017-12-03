@@ -3577,7 +3577,7 @@ model, the animation is stopped.</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="check_path"><span class="type-signature"></span>check_path(desired_path)</h4>
+    <h4 class="name" id="check_path"><span class="type-signature"></span>check_path(desired_path [, options])</h4>
     
     
     <p class="summary"><p>This function compares the path followed by the default robot
@@ -3607,6 +3607,8 @@ with that which was desired.</p></p>
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -3633,10 +3635,227 @@ with that which was desired.</p></p>
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>A desired path, as printed by RUR.print_path.</p></td>
+            <td class="description last"><p>A desired path, as printed by <code>RUR.print_path</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A Javascript object (similar to a Python dict).</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>failure</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If the followed path was <strong>not</strong> the specified
+one and <code>options.failure</code> is specified, an exception will be raised and
+<code>options.failure</code> will be shown.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If the followed path <strong>was</strong> the specified
+one and <code>options.success</code> is specified, an exception will be raised and
+<code>options.success</code> will be shown.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>show_path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If the followed path was not the specified
+one and <code>options.show_path</code> is set to <code>true</code>, the <code>desired_path</code>
+will be shown. If this is desired, we suggest to use the string <code>&quot;true&quot;</code> which
+will be valid in both Python and Javascript.
+If the correct path is followed, and you wish to show the <code>desired_path</code>, 
+simply call <code>RUR.show_path()</code> explicitly with the relevant arguments
+prior to calling <code>RUR.check_path()</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If the desired path is shown and <code>options.color</code>
+is specified, it will be the color used to show the path.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -3681,7 +3900,7 @@ with that which was desired.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="utils_path_utils.js.html">utils/path_utils.js</a>,
-				 <a href="utils_path_utils.js.html#sunlight-1-line-42">line 42</a>
+				 <a href="utils_path_utils.js.html#sunlight-1-line-60">line 60</a>
 			</li>
 		</ul>
 	</dd>
@@ -3710,7 +3929,9 @@ with that which was desired.</p></p>
     
             
 <div class="param-desc">
-    <p>True if the correct path was followed.</p>
+    <p>True if the correct path was followed, false otherwise <strong>and</strong>
+if the relevant option <code>options.success</code> or <code>options.failure</code>
+is not specified.</p>
 </div>
 
 
@@ -3874,7 +4095,7 @@ the user.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-480">line 480</a>
+				 <a href="rur.js.html#sunlight-1-line-504">line 504</a>
 			</li>
 		</ul>
 	</dd>
@@ -11507,7 +11728,7 @@ programming modes.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-464">line 464</a>
+				 <a href="rur.js.html#sunlight-1-line-488">line 488</a>
 			</li>
 		</ul>
 	</dd>
@@ -11686,7 +11907,180 @@ For Python, use <code>SatelliteInfo.print_world_map()</code> instead.</p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-445">line 445</a>
+				 <a href="rur.js.html#sunlight-1-line-469">line 469</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="randint"><span class="type-signature"></span>randint( [integer] [, integer])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Like the Python function random.randit, it returns a
+random integer in range [min, max], including both end points.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>integer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>min</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>integer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>max</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="rur.js.html">rur.js</a>,
+				 <a href="rur.js.html#sunlight-1-line-539">line 539</a>
 			</li>
 		</ul>
 	</dd>
@@ -13432,7 +13826,7 @@ otherwise, it raises an exception.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_walls.js.html">world_api/walls.js</a>,
-				 <a href="world_api_walls.js.html#sunlight-1-line-151">line 151</a>
+				 <a href="world_api_walls.js.html#sunlight-1-line-163">line 163</a>
 			</li>
 		</ul>
 	</dd>
@@ -14408,7 +14802,236 @@ and the value of the attribute will be shown as well.</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="show_correct_path"><span class="type-signature"></span>show_correct_path(path [, color])</h4>
+    <h4 class="name" id="show_description"><span class="type-signature"></span>show_description()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Ensures that the world description window 
+(usually open from <strong>World Info</strong> button for English UI)
+is shown.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="world_get_world_get.js.html">world_get/world_get.js</a>,
+				 <a href="world_get_world_get.js.html#sunlight-1-line-476">line 476</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="show_editors_content"><span class="type-signature"></span>show_editors_content(show)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Used to show (or not) the content of the various world
+editors in the world's description (<strong>World Info</strong> button for English UI).</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>show</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="world_get_world_get.js.html">world_get/world_get.js</a>,
+				 <a href="world_get_world_get.js.html#sunlight-1-line-88">line 88</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="show_path"><span class="type-signature"></span>show_path(path [, color])</h4>
     
     
     <p class="summary"><p>This function draws a path which Reeborg should follow.
@@ -14557,7 +15180,7 @@ the default is <code>&quot;lightsteelblue&quot;</code>.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="utils_path_utils.js.html">utils/path_utils.js</a>,
-				 <a href="utils_path_utils.js.html#sunlight-1-line-99">line 99</a>
+				 <a href="utils_path_utils.js.html#sunlight-1-line-165">line 165</a>
 			</li>
 		</ul>
 	</dd>
@@ -14741,7 +15364,7 @@ never need to call this function.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-369">line 369</a>
+				 <a href="rur.js.html#sunlight-1-line-393">line 393</a>
 			</li>
 		</ul>
 	</dd>
@@ -14805,7 +15428,7 @@ never need to call this function.</p></p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on Saturday, November 18th 2017
+		on Sunday, December 3rd 2017
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
