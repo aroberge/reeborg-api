@@ -177,6 +177,170 @@ des &quot;choses&quot; en français.</em></p></div>
             
 <hr>
 <dt>
+    <h4 class="name" id="add_background_path"><span class="type-signature"></span>add_background_path(name, path)</h4>
+    
+    
+    <p class="summary"><p>This function sets a named tile as background for a path</p></p>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of a tile <strong>or</strong> a colour recognized by JS/HTML.
+   No check is performed to ensure that the value given is valid; it the
+   tile name is not recognized, it is assumed to be a colour. If a new tile
+   is set at that location, it replaces the pre-existing one.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A Javascript Array (or Python list) whose items are
+arrays of the form [x, y].</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-134">line 134</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="add_background_tile"><span class="type-signature"></span>add_background_tile(name, x, y)</h4>
     
     
@@ -329,7 +493,7 @@ Any pre-existing tile or color at that location will be replaced by the new valu
 		<ul class="dummy">
 			<li>
 				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
-				 <a href="world_api_background_tile.js.html#sunlight-1-line-56">line 56</a>
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-70">line 70</a>
 			</li>
 		</ul>
 	</dd>
@@ -760,7 +924,7 @@ cannot be a known &quot;thing&quot;, which is the opposite of
 		<ul class="dummy">
 			<li>
 				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
-				 <a href="world_api_background_tile.js.html#sunlight-1-line-80">line 80</a>
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-94">line 94</a>
 			</li>
 		</ul>
 	</dd>
@@ -3959,6 +4123,92 @@ is not specified.</p>
             
 <hr>
 <dt>
+    <h4 class="name" id="clear_background"><span class="type-signature"></span>clear_background()</h4>
+    
+    
+    <p class="summary"><p>This function removes all existing background tiles</p></p>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-27">line 27</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="configure_red_green"><span class="type-signature"></span>configure_red_green(red, green)</h4>
     
     
@@ -4925,7 +5175,7 @@ the entire maze information is deleted from the world definition.</p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
-				 <a href="world_api_background_tile.js.html#sunlight-1-line-27">line 27</a>
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-41">line 41</a>
 			</li>
 		</ul>
 	</dd>
@@ -5178,7 +5428,7 @@ can be found at a given location.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
-				 <a href="world_api_background_tile.js.html#sunlight-1-line-151">line 151</a>
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-197">line 197</a>
 			</li>
 		</ul>
 	</dd>
@@ -6945,7 +7195,7 @@ against named fatalities.</p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_is_fatal.js.html">world_api/is_fatal.js</a>,
-				 <a href="world_api_is_fatal.js.html#sunlight-1-line-6">line 6</a>
+				 <a href="world_api_is_fatal.js.html#sunlight-1-line-7">line 7</a>
 			</li>
 		</ul>
 	</dd>
@@ -8608,7 +8858,7 @@ name at a given location.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
-				 <a href="world_api_background_tile.js.html#sunlight-1-line-181">line 181</a>
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-227">line 227</a>
 			</li>
 		</ul>
 	</dd>
@@ -9183,7 +9433,7 @@ is found at that location, <code>false/False</code> otherwise.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_is_fatal.js.html">world_api/is_fatal.js</a>,
-				 <a href="world_api_is_fatal.js.html#sunlight-1-line-96">line 96</a>
+				 <a href="world_api_is_fatal.js.html#sunlight-1-line-97">line 97</a>
 			</li>
 		</ul>
 	</dd>
@@ -9381,7 +9631,7 @@ carry protections against fatalities</p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_is_fatal.js.html">world_api/is_fatal.js</a>,
-				 <a href="world_api_is_fatal.js.html#sunlight-1-line-37">line 37</a>
+				 <a href="world_api_is_fatal.js.html#sunlight-1-line-38">line 38</a>
 			</li>
 		</ul>
 	</dd>
@@ -12264,7 +12514,7 @@ random integer in range [min, max], including both end points.</p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_background_tile.js.html">world_api/background_tile.js</a>,
-				 <a href="world_api_background_tile.js.html#sunlight-1-line-120">line 120</a>
+				 <a href="world_api_background_tile.js.html#sunlight-1-line-166">line 166</a>
 			</li>
 		</ul>
 	</dd>
@@ -15428,7 +15678,7 @@ never need to call this function.</p></p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on Sunday, December 3rd 2017
+		on Wednesday, December 6th 2017
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
