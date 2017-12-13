@@ -4345,7 +4345,7 @@ the user.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-522">line 522</a>
+				 <a href="rur.js.html#sunlight-1-line-523">line 523</a>
 			</li>
 		</ul>
 	</dd>
@@ -6900,6 +6900,118 @@ within the world boundaries, the object</code>{x:0, y:0}` is returned.</p>
     <dd>
         
 <span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="get_print"><span class="type-signature"></span>get_print()</h4>
+    
+    
+    <p class="summary"><p>This function returns the content of the standard output,
+produced by <code>print</code> in Python, and either <code>write</code> or <code>writeln</code> in
+Javascript.</p></p>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="programming_api_output.js.html">programming_api/output.js</a>,
+				 <a href="programming_api_output.js.html#sunlight-1-line-57">line 57</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The content of the print output.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
 
 
 
@@ -11978,7 +12090,7 @@ programming modes.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-506">line 506</a>
+				 <a href="rur.js.html#sunlight-1-line-507">line 507</a>
 			</li>
 		</ul>
 	</dd>
@@ -12157,7 +12269,7 @@ For Python, use <code>SatelliteInfo.print_world_map()</code> instead.</p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-487">line 487</a>
+				 <a href="rur.js.html#sunlight-1-line-488">line 488</a>
 			</li>
 		</ul>
 	</dd>
@@ -12330,7 +12442,7 @@ random integer in range [min, max], including both end points.</p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-557">line 557</a>
+				 <a href="rur.js.html#sunlight-1-line-558">line 558</a>
 			</li>
 		</ul>
 	</dd>
@@ -15142,6 +15254,701 @@ is shown.</p>
             
 <hr>
 <dt>
+    <h4 class="name" id="show_detailed_diff"><span class="type-signature"></span>show_detailed_diff(expected, actual [, options])</h4>
+    
+    
+    <p class="summary"><p>This function compares two strings and returns a summary of what
+was expected, followed by an output showing the differences as highlighted.
+This can be used, for example, to compare the output of a print statement
+written by a student to an expected output. If one wants to compare the
+result of a function returning a string, an additional option is to 
+also show the actual output.</p>
+<p><strong>Note</strong>: if you or one of your students find the color differences between
+the inserted text and the deleted text too hard to distinguish, please
+get in touch with me so that I can make this work better.</p></p>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The expected string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actual</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The string that was obtained (from the student code)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A Javascript object (Python dict) containing some 
+    additional optional options.</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>semantic</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If set to <code>true</code>, a semantic comparison 
+ (word by word)
+ is attempted rather than a character by character comparison.
+ This may give a more readable output in some cases.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected_heading</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A string to use as the heading
+ for the expected result.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>differences</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A string to use as the heading
+ for the highlighted differences.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>show_actual</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If we wish to also display the actual
+ result.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actual_heading</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A string to use as the heading
+ for the actual result. This will be ignored if <code>options.show_actual</code> does
+ not evaluate to <code>true</code>.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="programming_api_output.js.html">programming_api/output.js</a>,
+				 <a href="programming_api_output.js.html#sunlight-1-line-125">line 125</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>A formatted html string.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="show_diff"><span class="type-signature"></span>show_diff(expected, actual [, semantic])</h4>
+    
+    
+    <p class="summary"><p>This function compares two strings and returns a single html string
+with any differences highlighted. Newlines are converted to &#9166; followed
+by <code>&lt;br&gt;</code>. The typical use case is to compare an expected result to the
+one actually observed.</p>
+<p><strong>Note</strong>: if you or one of your students find the color differences between
+the inserted text and the deleted text too hard to distinguish, please
+get in touch with me so that I can make this work better.</p></p>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The expected string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actual</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The string that was obtained (from the student code)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>semantic</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>If set to <code>true</code>, a semantic comparison (word by word)
+ is attempted rather than a character by character comparison.
+ This may give a more readable output in some cases.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="programming_api_output.js.html">programming_api/output.js</a>,
+				 <a href="programming_api_output.js.html#sunlight-1-line-69">line 69</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The content of the print output as a specially formatted html string.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="show_editors_content"><span class="type-signature"></span>show_editors_content(show)</h4>
     
     
@@ -15568,7 +16375,7 @@ like <code>Home 1</code>.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="ui_user_progress.js.html">ui/user_progress.js</a>,
-				 <a href="ui_user_progress.js.html#sunlight-1-line-130">line 130</a>
+				 <a href="ui_user_progress.js.html#sunlight-1-line-129">line 129</a>
 			</li>
 		</ul>
 	</dd>
@@ -15752,7 +16559,7 @@ never need to call this function.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-411">line 411</a>
+				 <a href="rur.js.html#sunlight-1-line-412">line 412</a>
 			</li>
 		</ul>
 	</dd>
@@ -15816,7 +16623,7 @@ never need to call this function.</p></p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on Tuesday, December 12th 2017
+		on Wednesday, December 13th 2017
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
