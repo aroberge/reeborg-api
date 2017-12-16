@@ -1400,7 +1400,7 @@ no change is being made and a message is logged in the browser's console.</p></p
 for the default robot. It is possible to call this function multiple times,
 with different <code>x, y</code> positions; doing so will result in a initial position
 chosen randomly (among the choices recorded) each time a program is run.</p>
-<p>If <code>x, y</code> had previously been set as a goal final position
+<p>If <code>x, y</code> had previously been set as an initial position
 no change is being made and a message is logged in the browser's console.</p></p>
     
 </dt>
@@ -4345,7 +4345,7 @@ the user.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-523">line 523</a>
+				 <a href="rur.js.html#sunlight-1-line-525">line 525</a>
 			</li>
 		</ul>
 	</dd>
@@ -9545,7 +9545,7 @@ is found at that location, <code>false/False</code> otherwise.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_is_fatal.js.html">world_api/is_fatal.js</a>,
-				 <a href="world_api_is_fatal.js.html#sunlight-1-line-97">line 97</a>
+				 <a href="world_api_is_fatal.js.html#sunlight-1-line-94">line 94</a>
 			</li>
 		</ul>
 	</dd>
@@ -12090,7 +12090,7 @@ programming modes.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-507">line 507</a>
+				 <a href="rur.js.html#sunlight-1-line-509">line 509</a>
 			</li>
 		</ul>
 	</dd>
@@ -12269,7 +12269,7 @@ For Python, use <code>SatelliteInfo.print_world_map()</code> instead.</p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-488">line 488</a>
+				 <a href="rur.js.html#sunlight-1-line-490">line 490</a>
 			</li>
 		</ul>
 	</dd>
@@ -12442,7 +12442,7 @@ random integer in range [min, max], including both end points.</p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-558">line 558</a>
+				 <a href="rur.js.html#sunlight-1-line-560">line 560</a>
 			</li>
 		</ul>
 	</dd>
@@ -13081,6 +13081,194 @@ random integer in range [min, max], including both end points.</p>
     
         <p>Will throw an error if there is no such decorative object to remove
        at that location</p>
+    
+    </div>
+
+</li>
+        </ul>
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="remove_initial_position"><span class="type-signature"></span>remove_initial_position(x, y)</h4>
+    
+    
+    <p class="summary"><p>This function removes an initial (starting) position as a possibility
+for the default robot. It is possible to call this function multiple times,
+with different <code>x, y</code> positions. However, if there is only one remaining
+initial position, such calls will be ignored to ensure that there is
+always a robot present.</p>
+<p>If <code>x, y</code> is not an initial position
+no change is being made and a message is logged in the browser's console.</p></p>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The position on the grid</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The position on the grid</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="world_api_robot.js.html">world_api/robot.js</a>,
+				 <a href="world_api_robot.js.html#sunlight-1-line-357">line 357</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Throws:</h5>
+    <ul>
+            <li>
+
+    <div class="param-desc">
+    
+        <p>Will throw an error if the the world does not contain a robot</p>
+    
+    </div>
+
+</li>
+        
+            <li>
+
+    <div class="param-desc">
+    
+        <p>Will throw an error if the initial position is not valid [not implemented yet]</p>
     
     </div>
 
@@ -14842,7 +15030,7 @@ will be chosen randomly.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="world_api_robot.js.html">world_api/robot.js</a>,
-				 <a href="world_api_robot.js.html#sunlight-1-line-351">line 351</a>
+				 <a href="world_api_robot.js.html#sunlight-1-line-412">line 412</a>
 			</li>
 		</ul>
 	</dd>
@@ -16696,7 +16884,7 @@ never need to call this function.</p></p>
 		<ul class="dummy">
 			<li>
 				<a href="rur.js.html">rur.js</a>,
-				 <a href="rur.js.html#sunlight-1-line-412">line 412</a>
+				 <a href="rur.js.html#sunlight-1-line-414">line 414</a>
 			</li>
 		</ul>
 	</dd>
@@ -16760,7 +16948,7 @@ never need to call this function.</p></p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on Thursday, December 14th 2017
+		on Saturday, December 16th 2017
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
